@@ -1,7 +1,15 @@
-.urban-word {
+.urban {
+  max-width: 440px;
+}
+.urban > .word {
   text-transform: capitalize;
   font-weight: 800;
+  font-size: 1.5rem;
 }
-.urban {
-  max-width: 420px;
+.urban > .description,
+.urban > .example {
+  padding: 4px;
+  overflow: hidden;
+  max-height: 10rem;
+  text-overflow: ellipsis;
 }

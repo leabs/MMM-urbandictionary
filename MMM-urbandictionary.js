@@ -7,8 +7,8 @@
 Module.register("MMM-urbandictionary", {
   // Module config defaults.
   defaults: {
-    //update daily
-    updateInterval: 86400000,
+    //update every 3 minutes
+    updateInterval: 180000,
     //fade speed
     fadeSpeed: 4000,
     //initial load delay
@@ -19,7 +19,7 @@ Module.register("MMM-urbandictionary", {
     apiBase: "https://api.urbandictionary.com/v0/random"
   },
   getHeader: function () {
-    return "Urban Dictionary Random Word";
+    return "UrbanDictionary.com Random Word";
   },
   getStyles: function () {
     return [
@@ -48,8 +48,11 @@ Module.register("MMM-urbandictionary", {
     const response = await fetch(this.config.apiBase);
     const json = await response.json();
     const word = json.list[0].word;
-    const definition = json.list[0].definition;
-    const example = json.list[0].example;
+    //This removes  the brackets from definition and example and it limits the amount of characters to 130 for each so they fit nice.
+    const definition = json.list[0].definition
+      .replace(/[\[\]]/g, "")
+      .substr(0, 130);
+    const example = json.list[0].example.replace(/[\[\]]/g, "").substr(0, 130);
     const author = json.list[0].author;
     return [word, definition, example, author];
   },
@@ -63,14 +66,20 @@ Module.register("MMM-urbandictionary", {
     //wrapper.innerHTML = this.config.word;
     this.getWord().then((response) => {
       wrapper.innerHTML =
-        "<div class='urban-word'>" +
+        "<div class='word'>" +
         response[0] +
         "</div>" +
-        "Description: " +
+        "<div class='description'>" +
+        "<strong>Description: </strong>" +
         response[1] +
+        "</div>" +
         "<br>" +
-        "Example: " +
+        "<div class='example'>" +
+        "<strong>Example: </strong>" +
+        "<em>" +
         response[2] +
+        "</em>" +
+        "</div>" +
         "<br>" +
         "Author: " +
         response[3];
