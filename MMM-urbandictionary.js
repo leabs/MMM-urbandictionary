@@ -19,7 +19,7 @@ Module.register("MMM-urbandictionary", {
     apiBase: "https://api.urbandictionary.com/v0/random"
   },
   getHeader: function () {
-    return "UrbanDictionary.com Random Word";
+    return "urbandictionary.com Random Word";
   },
   getStyles: function () {
     return [
