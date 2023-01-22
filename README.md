@@ -1,6 +1,6 @@
 # MMM-UrbanDictionary
 
-A [MagicMirror](https://github.com/MichMich/MagicMirror) Module to show random daily word from urbandictionary.com. This shows the word, definition, example, and author and updates every 5 minutes.
+A [MagicMirror](https://github.com/MichMich/MagicMirror) Module to show random daily word from urbandictionary.com. This shows the word, definition, example, and author and updates every 3 minutes.
 
 ![MMM-urbandictionary module screenshot](/screenshot/mirror.png)
 
@@ -18,4 +18,4 @@ modules: [
 ]
 ```
 
-_note_: The custom css for this module `style.css` is located in the `MMM-UrbanDictionary` folder and is set for a width of 420px. This value may have to be adjusted for your mirror and preferred location for the module.
+_note_: The custom CSS for this module `style.css` is located in the `MMM-UrbanDictionary` folder and is set for a width of `420px`. This value may have to be adjusted for your mirror and preferred location for the module.
